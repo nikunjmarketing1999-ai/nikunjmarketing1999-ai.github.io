@@ -292,6 +292,22 @@
   .ls-chip img{height:26px;width:auto;display:block;object-fit:contain}
   .ls-chip.dark{background:var(--ink)}
   .ls-chip.txt{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:var(--ink-soft);letter-spacing:.02em}
+
+  /* ===== v2 slick layer ===== */
+  .rail{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:140;display:flex;flex-direction:column;gap:13px}
+  .rail a{width:10px;height:10px;border-radius:50%;background:var(--line);border:1px solid var(--faint);transition:all .3s;position:relative}
+  .rail a.active{background:var(--blue);border-color:var(--blue);transform:scale(1.35)}
+  .rail a::after{content:attr(data-l);position:absolute;right:20px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:4px 9px;border-radius:7px;box-shadow:var(--shadow-s);opacity:0;pointer-events:none;white-space:nowrap;transition:opacity .2s}
+  .rail a:hover::after{opacity:1}
+  @media(max-width:980px){.rail{display:none}}
+  .hero .aurora{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  .hero .aurora i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;animation:auf 20s ease-in-out infinite}
+  .hero .aurora i:nth-child(1){width:440px;height:440px;background:radial-gradient(circle,rgba(44,73,238,.45),transparent 70%);top:-90px;left:8%}
+  .hero .aurora i:nth-child(2){width:500px;height:500px;background:radial-gradient(circle,rgba(230,106,44,.40),transparent 70%);bottom:-130px;right:6%;animation-delay:-7s}
+  .hero .aurora i:nth-child(3){width:380px;height:380px;background:radial-gradient(circle,rgba(31,154,109,.30),transparent 70%);top:34%;right:32%;animation-delay:-13s}
+  @keyframes auf{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(46px,-34px) scale(1.08)}66%{transform:translate(-32px,22px) scale(.96)}}
+  .tilt{transition:transform .25s cubic-bezier(.2,.7,.3,1);transform-style:preserve-3d;will-change:transform}
+  @media (prefers-reduced-motion: reduce){.hero .aurora i{animation:none}}
 </style>
 </head>
 <body>
@@ -313,10 +329,20 @@
     <a class="cta" href="#contact" data-hot>Contact</a>
   </div>
 </nav>
+<div class="rail" id="rail" aria-hidden="true">
+  <a href="#top" data-l="Top" class="active"></a>
+  <a href="#about" data-l="About"></a>
+  <a href="#experience" data-l="Experience"></a>
+  <a href="#projects" data-l="Projects"></a>
+  <a href="#cases" data-l="Cases"></a>
+  <a href="#education" data-l="Education"></a>
+  <a href="#contact" data-l="Contact"></a>
+</div>
 
 <!-- HERO -->
 <header class="hero" id="top">
   <canvas id="dots"></canvas>
+  <div class="aurora"><i></i><i></i><i></i></div>
   <div class="hero-glow g1"></div>
   <div class="hero-glow g2"></div>
   <div class="hero-inner">
@@ -1013,6 +1039,30 @@ if(matchMedia('(hover:hover) and (pointer:fine)').matches){
     }
     requestAnimationFrame(draw);
   })();
+})();
+
+/* v2: rail active-section */
+(function(){
+  var rail=document.getElementById('rail'); if(!rail) return;
+  var links=[].slice.call(rail.querySelectorAll('a'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){var id='#'+e.target.id;
+      links.forEach(function(l){l.classList.toggle('active', l.getAttribute('href')===id);});}
+  });},{rootMargin:'-45% 0px -50% 0px'});
+  links.forEach(function(l){var s=document.querySelector(l.getAttribute('href')); if(s) io.observe(s);});
+})();
+/* v2: 3D tilt on cards */
+(function(){
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  document.querySelectorAll('.pcard,.edu').forEach(function(c){
+    c.classList.add('tilt');
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      c.style.transform='perspective(900px) rotateX('+(-y*5).toFixed(2)+'deg) rotateY('+(x*5).toFixed(2)+'deg) translateY(-6px)';
+    });
+    c.addEventListener('pointerleave',function(){c.style.transform='';});
+  });
 })();
 </script>
 </body>
