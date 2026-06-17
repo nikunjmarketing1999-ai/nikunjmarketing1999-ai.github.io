@@ -282,6 +282,16 @@
     .scrollcue{display:none}
   }
   @media(max-width:540px){ .skill-grid,.statstrip{grid-template-columns:1fr} .hstat{flex:1;min-width:calc(50% - 7px)} }
+
+  /* built-with logo strip */
+  .logostrip{margin:0 0 34px}
+  .ls-cap{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:14px}
+  .ls-row{display:flex;flex-wrap:wrap;gap:12px}
+  .ls-chip{height:56px;min-width:56px;padding:0 16px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-s);display:inline-flex;align-items:center;justify-content:center;transition:transform .25s}
+  .ls-chip:hover{transform:translateY(-4px)}
+  .ls-chip img{height:26px;width:auto;display:block;object-fit:contain}
+  .ls-chip.dark{background:var(--ink)}
+  .ls-chip.txt{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:var(--ink-soft);letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -387,7 +397,7 @@
 
     <div class="xp-row reveal">
       <div class="badge" aria-hidden="true">
-        <svg viewBox="0 0 84 84"><rect width="84" height="84" fill="#0F4C8C"/><rect x="25" y="25" width="34" height="34" fill="#ED1C24"/><rect x="35" y="35" width="14" height="14" fill="#fff"/></svg>
+        <img src="logos/hdfc.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain;padding:13%;background:#ffffff;display:block">
       </div>
       <div class="xp-main">
         <h3>Investment Banking Analyst</h3>
@@ -599,7 +609,7 @@
     <div class="cs reveal" data-cs>
       <div class="cs-head" data-toggle data-hot>
         <div class="badge" aria-hidden="true">
-          <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#0E9F6E"/><path d="M24 22 h16 a10 10 0 0 1 0 20 h-16 z" fill="none" stroke="#fff" stroke-width="4"/><circle cx="33" cy="32" r="3.4" fill="#fff"/><path d="M24 42 v8" stroke="#fff" stroke-width="4"/></svg>
+          <img src="logos/clipboard.png" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;padding:0;background:#ffffff;display:block">
         </div>
         <div class="cs-info">
           <div class="num">/ 01</div>
@@ -659,7 +669,7 @@
     <div class="cs reveal" data-cs>
       <div class="cs-head" data-toggle data-hot>
         <div class="badge" aria-hidden="true">
-          <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#EB0A1E"/><g fill="none" stroke="#fff" stroke-width="3"><ellipse cx="36" cy="36" rx="26" ry="16"/><ellipse cx="36" cy="30" rx="9" ry="13"/><ellipse cx="36" cy="40" rx="20" ry="7"/></g></svg>
+          <img src="logos/toyota.svg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain;padding:18%;background:#ffffff;display:block">
         </div>
         <div class="cs-info">
           <div class="num">/ 02</div>
@@ -704,7 +714,7 @@
     <div class="cs reveal" data-cs>
       <div class="cs-head" data-toggle data-hot>
         <div class="badge" aria-hidden="true">
-          <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#0071CE"/><g stroke="#FFC220" stroke-width="4" stroke-linecap="round"><g id="spk"><line x1="36" y1="16" x2="36" y2="26"/></g><use href="#spk" transform="rotate(45 36 36)"/><use href="#spk" transform="rotate(90 36 36)"/><use href="#spk" transform="rotate(135 36 36)"/><use href="#spk" transform="rotate(180 36 36)"/><use href="#spk" transform="rotate(225 36 36)"/><use href="#spk" transform="rotate(270 36 36)"/><use href="#spk" transform="rotate(315 36 36)"/></g></svg>
+          <img src="logos/walmart.svg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain;padding:17%;background:#0071CE;display:block">
         </div>
         <div class="cs-info">
           <div class="num">/ 03</div>
@@ -755,7 +765,7 @@
     <div class="cs reveal" data-cs>
       <div class="cs-head" data-toggle data-hot>
         <div class="badge" aria-hidden="true">
-          <svg viewBox="0 0 72 72"><rect width="72" height="72" fill="#7A2E2E"/><path d="M20 30 h6 v14 h22 v-14 h6 v22 a4 4 0 0 1-4 4 H24 a4 4 0 0 1-4-4 z" fill="#E9C893"/><rect x="18" y="40" width="10" height="16" rx="3" fill="#C99A3A"/><rect x="44" y="40" width="10" height="16" rx="3" fill="#C99A3A"/></svg>
+          <img src="logos/lazboy.svg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain;padding:16%;background:#ffffff;display:block">
         </div>
         <div class="cs-info">
           <div class="num">/ 04</div>
@@ -809,7 +819,7 @@
     <div class="edu-grid">
       <div class="edu reveal">
         <div class="badge" aria-hidden="true">
-          <svg viewBox="0 0 88 88"><rect width="88" height="88" fill="#000"/><rect width="88" height="7" fill="#FFBD00"/><text x="44" y="50" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="26" fill="#FFBD00">UWM</text><text x="44" y="68" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" letter-spacing="1.5" fill="#bbb">MILWAUKEE</text></svg>
+          <img src="logos/uwm.svg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain;padding:15%;background:#000000;display:block">
         </div>
         <div>
           <h3>University of Wisconsin–Milwaukee</h3>
@@ -837,6 +847,19 @@
     <div class="head reveal" style="margin-bottom:40px">
       <span class="eyebrow amber">06 — Toolkit</span>
       <h2 class="title" style="font-size:clamp(32px,4.5vw,50px)">What I work with.</h2>
+    </div>
+    <div class="logostrip reveal">
+      <span class="ls-cap">Built with</span>
+      <div class="ls-row">
+        <span class="ls-chip"><img src="logos/python.svg" alt="Python"></span>
+        <span class="ls-chip"><img src="logos/anthropic.svg" alt="Anthropic"></span>
+        <span class="ls-chip dark"><img src="logos/huggingface.svg" alt="Hugging Face"></span>
+        <span class="ls-chip"><img src="logos/ollama.svg" alt="Ollama"></span>
+        <span class="ls-chip"><img src="logos/github.svg" alt="GitHub"></span>
+        <span class="ls-chip txt">Fireworks AI</span>
+        <span class="ls-chip txt">OpenAI</span>
+        <span class="ls-chip txt">Tableau</span>
+      </div>
     </div>
     <div class="skill-grid">
       <div class="skill-cat reveal">
